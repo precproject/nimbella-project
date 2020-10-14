@@ -1,0 +1,17 @@
+[
+  {
+    "apihost": "https://apigcp.nimbella.io",
+    "namespace": "team0215-tb5gqngemjy",
+    "packageVersions": {},
+    "actionVersions": {
+      "qr-java": {
+        "version": "0.0.2",
+        "digest": "44ac2aa02f63a171677780457b395e3b640383161799a3f63b06ecdbc0fee57b"
+      }
+    },
+    "webHashes": {
+      "web\\index.html": "ed7bb7c182e0c8f8ae10adbd075e64495a74ff1bfc4001d525f06611b9d25242",
+      "web\\logo.png": "302f6b60c3b73ac23df07e528d14ef740576ac5966cdd5ea4884f03d0a532a71"
+    }
+  }
+]
