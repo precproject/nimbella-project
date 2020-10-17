@@ -1,3 +1,4 @@
 .git
 __deployer__.zip
 node_modules
+package-lock.json

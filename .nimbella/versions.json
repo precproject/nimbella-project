@@ -4,18 +4,22 @@
     "namespace": "team0215-tb5gqngemjy",
     "packageVersions": {
       "foodtrack-node": {
-        "version": "0.0.6",
-        "digest": "9e2b8b7e17f6961a64a58c189f7960bc93b18d7a299a635b2b58d292239e34aa"
+        "version": "0.0.8",
+        "digest": "0444e95e1b2c5a07091ae30e95f9a9bd829bf1d93959913cb0c6a684f056bdf4"
       }
     },
     "actionVersions": {
       "qr-java": {
-        "version": "0.0.16",
-        "digest": "b877ee32423d84c10d8ffaf8f09f2633d9fc745377f22573bdf5036f094b3722"
+        "version": "0.0.18",
+        "digest": "e3cb85a2024a03409f0b08477329c393280062269ba8223f597edb896f79a98d"
+      },
+      "foodtrack-node/login": {
+        "version": "0.0.2",
+        "digest": "79101acf6a7d1337e00eec3b338c8761c2b0806cb502ffe9c8068a5f4627459b"
       },
       "foodtrack-node/test": {
-        "version": "0.0.3",
-        "digest": "99058e61260713360a875a921803d479139799a190df329ba50fad87069b8785"
+        "version": "0.0.5",
+        "digest": "2faf8c554dada68f7cc4c940d684915bea627f9dcff46bcc28decc7c9ced1b51"
       }
     },
     "webHashes": {

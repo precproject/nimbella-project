@@ -3,6 +3,7 @@ packages:
     actions:
       - name: test
         runtime: nodejs:default
+      - name: login
   - name: default
     actions:
       - name: qr-java
