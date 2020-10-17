@@ -2,11 +2,20 @@
   {
     "apihost": "https://apigcp.nimbella.io",
     "namespace": "team0215-tb5gqngemjy",
-    "packageVersions": {},
+    "packageVersions": {
+      "foodtrack-node": {
+        "version": "0.0.6",
+        "digest": "9e2b8b7e17f6961a64a58c189f7960bc93b18d7a299a635b2b58d292239e34aa"
+      }
+    },
     "actionVersions": {
       "qr-java": {
-        "version": "0.0.2",
-        "digest": "44ac2aa02f63a171677780457b395e3b640383161799a3f63b06ecdbc0fee57b"
+        "version": "0.0.16",
+        "digest": "b877ee32423d84c10d8ffaf8f09f2633d9fc745377f22573bdf5036f094b3722"
+      },
+      "foodtrack-node/test": {
+        "version": "0.0.3",
+        "digest": "99058e61260713360a875a921803d479139799a190df329ba50fad87069b8785"
       }
     },
     "webHashes": {

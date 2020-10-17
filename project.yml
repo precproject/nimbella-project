@@ -1,6 +1,10 @@
 packages:
+  - name: foodtrack-node 
+    actions:
+      - name: test
+        runtime: nodejs:default
   - name: default
     actions:
-      - name: qr-java 
+      - name: qr-java
         runtime: java:default
         main: qr.Generate#main
