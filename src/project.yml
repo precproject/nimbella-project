@@ -26,12 +26,3 @@ packages:
                 
       - <<: *default_action
         name: shop
-        
-  - name: default
-    actions:
-      - name: qr-java
-        runtime: java:default
-        main: qr.Generate#main
-      - name: qr-java
-        runtime: java:default
-        main: qr.Test#main
