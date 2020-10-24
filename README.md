@@ -42,3 +42,5 @@ Angular Development Project - /foodtrackapp
 9. npm install
 10. ng serve
 11. ng build --prod
+
+** CI CD ADDED **
