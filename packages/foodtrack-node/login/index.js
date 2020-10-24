@@ -21,8 +21,7 @@ function main(params) {
     if (params.__ow_method == "get") {
         // CHECKS FOR USER ROLE
         if (params.__ow_path == "/auth") {
-            let token = params.username;
-            let user;
+            let token = params.token;
             // IF NO TOKEN
             if (!token) {
                 return {
@@ -37,7 +36,7 @@ function main(params) {
                     return {
                         statusCode: 200,
                         headers: { 'Content-Type': 'application/json' },
-                        body: { "message": "Authorized Request", "role": user.role, "token": token, "username": user.username }
+                        body: { "message": "Authorized Request", "role": user.role, "token": token, "username": user.username, "store": user.store }
                     };
                 }
                 else {
@@ -53,14 +52,50 @@ function main(params) {
 
     // ALL GET CALLS
     if (params.__ow_method == "post") {
+        // CHECKS FOR USER ROLE
+        if (params.__ow_path == "/auth") {
+            let token = params.token;
+            // IF NO TOKEN
+            if (!token) {
+                return {
+                    statusCode: 403,
+                    headers: { 'Content-Type': 'application/json' },
+                    body: { "message": "Not Authorized Request" }
+                };
+            }
+            else {
+                let user = verifyUser(token, secretKey)
+                if (user) {
+                    return {
+                        statusCode: 200,
+                        headers: { 'Content-Type': 'application/json' },
+                        body: { "message": "Authorized Request", "role": user.role, "token": token, "username": user.username, "store": user.store, "id": user.id }
+                    };
+                }
+                else {
+                    return {
+                        statusCode: 401,
+                        body: { "message": "Not Authorized Request" }
+                    }
+                }
+
+            }
+        }
         // LOGIN USER & GENERATE TOKEN
         if (params.__ow_path == "") {
-            let input = JSON.parse(params.__ow_body);
-            let username = input.username;
-            let password = input.password;
+            //let input = JSON.parse(params.__ow_body);
+
+            let store = "";
+            let username = params.username;
+            let password = params.password;
+            let role = params.role;
+            let id = params.id;
+
+            if (params.store)
+                store = params.store;
 
             // CHECK USER IN DB
-            let user = { username: username, role: "admin" };
+            let user = { username: username, role: role, store: store, id: id };
 
             //jwt.decode(token)
             // IF USER PRESENT GENERATE TOKEN 
@@ -68,8 +103,8 @@ function main(params) {
 
             return {
                 statusCode: 200,
-                headers: { 'Content-Type': 'application/json', 'jwt': token },
-                body: { message: "You want to Login", username: input.username, password: input.password, jwt: token }
+                headers: { 'Content-Type': 'application/json' },
+                body: { message: "Valid User", user: user, jwt: token }
             };
         }
     }

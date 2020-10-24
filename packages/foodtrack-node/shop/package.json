@@ -1,0 +1,10 @@
+{
+    "name": "store",
+    "version": "1.0.0",
+    "description": "Store Function",
+    "main": "index.js",
+    "dependencies": {
+        "mongoose": "^5.7.6",
+        "bluebird": "^3.5.0"
+    }
+}

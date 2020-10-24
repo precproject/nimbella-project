@@ -1,60 +1,21 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <title>Your Serverless Cloud. Beautiful.</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <style>
-      .footer {
-         position: absolute;
-         bottom: 0;
-         width: 620px;
-         height: 45px;
-         background-color: #f5f5f5;
-         margin-bottom: 150px;
-      }
-    </style>
-  </head>
-  <body style="padding-top:100px">
-    <div class="container" style="width:650px">
-      <center><img src="logo.png"></center>
-      <h2>Cloud-native by construction.<br/>No tools added.</h2>
-      <form id="myform" onsubmit="generate(); return false">
-        <div class="form-group">
-          <input id="mytext" class="form-control" style="float:left;width:85%;"
-                 type="text"
-                 name="text"
-                 maxlength="1024"
-                 placeholder="enter text here and click Translate"
-                 value=""/>
-          <button id="mysubmit" type="button" class="btn btn-primary" style="float:right">Translate</button>
-        </div>
-        <div style="margin:auto" id="myresult">
-        </div>
 
-      </form>
-    </div>
+<head>
+  <meta charset="utf-8">
+  <title>Foodtrackapp</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="styles.be1fd7ca98d236c36214.css"></head>
 
-    <script type="text/javascript">
-      var last = undefined
+<body>
+  <app-root></app-root>
+<script src="runtime-es2015.cdfb0ddb511f65fdc0a0.js" type="module"></script><script src="runtime-es5.cdfb0ddb511f65fdc0a0.js" nomodule defer></script><script src="polyfills-es5.0290b245fbcca09184ac.js" nomodule defer></script><script src="polyfills-es2015.ffa9bb4e015925544f91.js" type="module"></script><script src="scripts.51fb02b8e8bbaca8d2da.js" defer></script><script src="main-es2015.7870cfced1c8e8b1a9bb.js" type="module"></script><script src="main-es5.7870cfced1c8e8b1a9bb.js" nomodule defer></script></body>
 
-      $("#mysubmit").click(function() {
-        doit()
-      })
-
-      function doit() {
-        var txt = $("#mytext").val().trim()
-        if (last != txt) {
-          last = txt
-          let API = '/api/default/qr-java'
-          let src= API + '?text=' + escape(txt)
-          console.log("sending", src)
-          $.get(src, function(data, status) {
-            console.log("status", status)
-            $("#myresult").html('<img width="200" style="display:block; margin:auto;padding-top:10px" src="'+data+'" />')
-          })
-        }
-      }
-    </script>
-  </body>
 </html>
