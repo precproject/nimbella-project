@@ -12,8 +12,8 @@ module.exports = connectToDatabase = async () => {
         return Promise.resolve();
     }
 
-    console.log('=> using new database connection');
-    dbURL = "mongodb+srv://" + mongocred.username + ":" + mongocred.password + "@cluster0.oc00k.mongodb.net/" + mongocred.database + "?retryWrites=true&w=majority";
+    console.log('=> using new database connection => ' + process.env.DATABASE + ' ');
+    dbURL = "mongodb+srv://" + process.env.USERNAME + ":" + process.env.PASSWORD + "@cluster0.oc00k.mongodb.net/" + process.env.DATABASE + "?retryWrites=true&w=majority";
 
     isConnected = await mongoose.connect(dbURL, { useNewUrlParser: true, useFindAndModify: false, useCreateIndex: true, useUnifiedTopology: true });
     return isConnected;

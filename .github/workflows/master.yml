@@ -26,7 +26,7 @@ jobs:
     - run: npm run ci:deploy
 
     env:
-      username: ${{ secrets.username }}
-      password: ${{ secrets.password }}
-      database: ${{ secrets.database }}
+      USERNAME: ${{ secrets.USERNAME }}
+      PASSWORD: ${{ secrets.PASSWORD }}
+      DATABASE: ${{ secrets.DATABASE }}
       DEPLOYER_LOGIN_TOKEN: ${{ secrets.DEPLOYER_LOGIN_TOKEN }}
