@@ -29,3 +29,4 @@ jobs:
       username: ${{ secrets.username }}
       password: ${{ secrets.password }}
       database: ${{ secrets.database }}
+      DEPLOYER_LOGIN_TOKEN: ${{ secrets.DEPLOYER_LOGIN_TOKEN }}
