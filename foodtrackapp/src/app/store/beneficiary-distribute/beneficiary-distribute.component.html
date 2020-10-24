@@ -1,0 +1,39 @@
+<h1>Food Distribution</h1> <a routerLink="../../list">Return to Home</a>
+<h4>Beneficiary Aadhar : {{aadhar}}</h4>
+<div style="width: 400px; margin: auto;">
+    <div *ngIf="aadhar" class="edit-form">
+        <h4></h4>
+        <form>
+            <div class="form-group">
+                <label for="title">Food Item</label>
+                <select class="form-control" id="id" [(ngModel)]="food.id" name="id">
+                    <option value="1">Jowar</option>
+                    <option value="2">Bajra</option>
+                    <option value="3">Dal</option>
+                    <option value="4">Household Item</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="description">Quantity (in kg/pieces)</label>
+                <input type="text" class="form-control" id="quantity" [(ngModel)]="food.quantity" name="quantity" />
+            </div>
+
+            <button type="submit" (click)="updateTransaction()">
+                Add Item
+            </button>
+            <button (click)="distribute()" style="margin-left: 10px">
+                Distribute to Beneficiary
+            </button>
+
+        </form>
+
+        <h6 *ngIf="status">{{status}}</h6>
+
+
+        <ul>
+            <li *ngFor="let i of transactions; let i = index">
+                Item : {{i.id}} - {{i.quantity}}
+            </li>
+        </ul>
+    </div>
+</div>

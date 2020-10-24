@@ -1,0 +1,138 @@
+<h1>Search Shop</h1>
+<div class="list row">
+
+    <div class="col-md-8">
+        <div class="input-group mb-3">
+            Select State
+            <select class="form-control" id="state" required [(ngModel)]="searchQuery.state" name="state">
+                <option value="36">Andhra Pradesh</option>
+                <option value="1">Andaman and Nicobar Islands</option>
+                <option value="2">Arunachal Pradesh</option>
+                <option value="3">Assam</option>
+                <option value="4">Bihar</option>
+                <option value="5">Chandigarh</option>
+                <option value="6">Chhattisgarh</option>
+                <option value="7">Dadar and Nagar Haveli</option>
+                <option value="8">Daman and Diu</option>
+                <option value="9">Delhi</option>
+                <option value="10">Lakshadweep</option>
+                <option value="11">Puducherry</option>
+                <option value="12">Goa</option>
+                <option value="13">Gujarat</option>
+                <option value="14">Haryana</option>
+                <option value="15">Himachal Pradesh</option>
+                <option value="16">Jammu and Kashmir</option>
+                <option value="17">Jharkhand</option>
+                <option value="18">Karnataka</option>
+                <option value="19">Kerala</option>
+                <option value="20">Madhya Pradesh</option>
+                <option value="21">Maharashtra</option>
+                <option value="22">Manipur</option>
+                <option value="23">Meghalaya</option>
+                <option value="24">Mizoram</option>
+                <option value="25">Nagaland</option>
+                <option value="26">Odisha</option>
+                <option value="27">Punjab</option>
+                <option value="28">Rajasthan</option>
+                <option value="29">Sikkim</option>
+                <option value="30">Tamil Nadu</option>
+                <option value="31">Telangana</option>
+                <option value="32">Tripura</option>
+                <option value="33">Uttar Pradesh</option>
+                <option value="34">Uttarakhand</option>
+                <option value="35">West Bengal</option>
+            </select>
+
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="button" (click)="searchShop()">
+                    Search Shop
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">State</th>
+                    <th scope="col">City</th>
+                    <th scope="col">Contact</th>
+                    <th scope="col">Transactions</th>
+                    <th scope="col">Distribute</th>
+
+                </tr>
+            </thead>
+            <tbody *ngIf="shops">
+                <tr *ngFor="let shop of shops.store; index as i" [class.active]="i == currentIndex"
+                    (click)="selectedShop(shop, i)">
+                    <th scope=" row">{{ i + 1 }}</th>
+                    <td>
+                        {{ shop.name }}
+                    </td>
+                    <td>{{ shop.state  }}</td>
+                    <td>{{ shop.city }}</td>
+                    <td>{{ shop.contact }}</td>
+                    <td><button (click)="selectedShop(shop, i)">Transactions</button></td>
+                    <td><button routerLink="../distribute/{{ shop._id }}">Distribute</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <!--
+            <ul class="list-group">
+                <li class="list-group-item" *ngFor="let beneficiary of beneficiarys; let i = index"
+                    [class.active]="i == currentIndex" (click)="setActiveTutorial(tutorial, i)">
+                    {{ tutorial.title }}
+                </li>
+            </ul>
+    -->
+    </div>
+
+    <div class="col-md-6">
+        <div *ngIf="currentShop">
+            <h4>Transactions Information</h4>
+            <table class=" table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Food Item</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let transaction of currentShop.transactions; index as i">
+                        <th scope="row">{{ i + 1 }}</th>
+                        <td>
+                            {{ transaction.item }}
+                        </td>
+                        <td>{{ transaction.quantity | number }}</td>
+                        <td>{{ transaction.date  }}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <!--
+                <div>
+                    <label><strong>Name:</strong></label> {{ currentBeneficiary.name }}
+                </div>
+                <div>
+                    <label><strong>Aadhar:</strong></label>
+                    {{ currentBeneficiary.aadhar }}
+                </div>
+                <div>
+                    <label><strong>Contact:</strong></label>
+                    {{ currentTutorial.published ? "Published" : "Pending" }}
+                </div>
+    
+                <a class="badge badge-warning" routerLink="/update/{{ currentBeneficiary.id }}">
+                    Edit
+                </a>
+                -->
+        </div>
+
+    </div>
+</div>

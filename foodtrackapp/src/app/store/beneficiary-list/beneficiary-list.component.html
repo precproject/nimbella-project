@@ -1,0 +1,104 @@
+<h1>Beneficiary</h1>
+<div class="list row">
+
+    <div class="col-md-8">
+        <div class="input-group mb-3">
+            <button class="btn btn-outline-secondary" type="button" (click)="getAll()">
+                Get All Beneficiary
+            </button>
+            <input type="text" class="form-control" style="margin-left: 5px" placeholder="Search Beneficiary By Aadhar"
+                [(ngModel)]="searchQuery" />
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="button" (click)="searchBeneficiary()">
+                    Search Beneficiary
+                </button>
+            </div>
+            <b>*Select Listing Entry to View Transactions</b>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Aadhar</th>
+                    <th scope="col">Contact</th>
+                    <th scope="col">Transactions</th>
+                    <th scope="col">Distribute</th>
+
+                </tr>
+            </thead>
+            <tbody *ngIf="beneficiarys">
+                <tr *ngFor="let beneficiary of beneficiarys.beneficiary; index as i" [class.active]="i == currentIndex"
+                    (click)="selectedBeneficiary(beneficiary, i)">
+                    <th scope=" row">{{ i + 1 }}</th>
+                    <td>
+                        {{ beneficiary.name }}
+                    </td>
+                    <td>{{ beneficiary.aadhar }}</td>
+                    <td>{{ beneficiary.contact  }}</td>
+                    <td><button (click)="selectedBeneficiary(beneficiary, i)">Transactions</button></td>
+                    <td><button routerLink="../distribute/{{ beneficiary.aadhar }}">Distribute</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <!--
+        <ul class="list-group">
+            <li class="list-group-item" *ngFor="let beneficiary of beneficiarys; let i = index"
+                [class.active]="i == currentIndex" (click)="setActiveTutorial(tutorial, i)">
+                {{ tutorial.title }}
+            </li>
+        </ul>
+-->
+    </div>
+
+    <div class="col-md-6">
+        <div *ngIf="currentBeneficiary">
+            <td><button routerLink="../update/{{ currentBeneficiary.aadhar }}">Update Beneficiary</button></td>
+            <h4>Transactions Information</h4>
+            <table class=" table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Food Item</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let transaction of currentBeneficiary.transactions; index as i">
+                        <th scope="row">{{ i + 1 }}</th>
+                        <td>
+                            {{transaction.item}} - {{transaction.id}}
+                        </td>
+                        <td>{{ transaction.quantity | number }}</td>
+                        <td>{{ transaction.date  }}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <!--
+            <div>
+                <label><strong>Name:</strong></label> {{ currentBeneficiary.name }}
+            </div>
+            <div>
+                <label><strong>Aadhar:</strong></label>
+                {{ currentBeneficiary.aadhar }}
+            </div>
+            <div>
+                <label><strong>Contact:</strong></label>
+                {{ currentTutorial.published ? "Published" : "Pending" }}
+            </div>
+
+            <a class="badge badge-warning" routerLink="/update/{{ currentBeneficiary.id }}">
+                Edit
+            </a>
+            -->
+        </div>
+
+    </div>
+
+    <b *ngIf="status">{{status}}</b>
+</div>

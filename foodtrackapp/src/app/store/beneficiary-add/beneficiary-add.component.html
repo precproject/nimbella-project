@@ -1,0 +1,33 @@
+<h1>Add Beneficiary </h1> <a routerLink="../../">Return to Home</a>
+<div style="width: 400px; margin: auto;">
+    <div class="submit-form">
+        <div *ngIf="!submitted">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" required [(ngModel)]="beneficiary.name" name="name" />
+            </div>
+            <div class="form-group">
+                <label for="name">Aadhar</label>
+                <input type="text" class="form-control" id="aadhar" required [(ngModel)]="beneficiary.aadhar"
+                    name="aadhar" />
+            </div>
+            <div class="form-group">
+                <label for="name">Contact</label>
+                <input type="text" class="form-control" id="contact" required [(ngModel)]="beneficiary.contact"
+                    name="contact" />
+            </div>
+
+
+
+            <button (click)="add()" class="btn btn-success">Add Beneficiary</button>
+        </div>
+
+        <div *ngIf="submitted">
+            <h4>Beneficiary Added successfully!</h4><br>
+            <b> Aadhar : {{beneficiary.beneficiary.aadhar}}</b><br>
+            <b> Name : {{beneficiary.beneficiary.name}}</b><br>
+            <b> Registered Under Shop ID : {{beneficiary.beneficiary.shop}}</b>
+
+        </div>
+    </div>
+</div>

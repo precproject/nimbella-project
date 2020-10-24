@@ -1,0 +1,113 @@
+<h1>Shops</h1> <a routerLink="../../">Return to Home</a>
+<div class="list row">
+
+    <div class="col-md-6">
+        <div class="input-group mb-3">
+            <button class="btn btn-outline-secondary" type="button" (click)="getAll()">
+                Get All Shops
+            </button>
+            <input type="text" class="form-control" style="margin-left: 5px" placeholder="Search Shop..."
+                [(ngModel)]="searchQuery" />
+            <select class="form-control" style="margin-left: 5px" [(ngModel)]="filter">
+                <option value="" selected>Select Filter</option>
+
+                <option value="name">Name</option>
+                <option value="city">City</option>
+                <option value="username">Username</option>
+                <option value="state">State Code</option>
+            </select>
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="button" (click)="searchShop()">
+                    Search Shop
+                </button>
+            </div>
+
+        </div>
+    </div>
+    <b>*Select Shop Listing to View Transactions</b>
+    <div class="col-md-6">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">State</th>
+                    <th scope="col">City</th>
+                    <th scope="col">Contact</th>
+                    <th scope="col">Distribute</th>
+
+                </tr>
+            </thead>
+            <tbody *ngIf="shops">
+                <tr *ngFor="let shop of shops.store; index as i" [class.active]="i == currentIndex"
+                    (click)="selectedShop(shop, i)">
+                    <th scope=" row">{{ i + 1 }}</th>
+                    <td>
+                        {{ shop.name }}
+                    </td>
+                    <td>{{ shop.state  }}</td>
+                    <td>{{ shop.city }}</td>
+                    <td>{{ shop.contact }}</td>
+                    <!--<td><button (click)="selectedShop(shop, i)">Transactions</button></td>-->
+                    <td><button routerLink="../distribute/{{ shop._id }}">Distribute</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <!--
+        <ul class="list-group">
+            <li class="list-group-item" *ngFor="let beneficiary of beneficiarys; let i = index"
+                [class.active]="i == currentIndex" (click)="setActiveTutorial(tutorial, i)">
+                {{ tutorial.title }}
+            </li>
+        </ul>
+-->
+    </div>
+
+    <div class="col-md-6">
+        <div *ngIf="currentShop">
+            <td><button routerLink="../update/{{ currentShop._id }}">Update Shop</button></td>
+            <h4>Transactions Information</h4>
+            <table class=" table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Food Item</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let transaction of currentShop.transactions; index as i">
+                        <th scope="row">{{ i + 1 }}</th>
+                        <td>
+                            {{ transaction.item }}
+                        </td>
+                        <td>{{ transaction.quantity | number }}</td>
+                        <td>{{ transaction.date  }}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <!--
+            <div>
+                <label><strong>Name:</strong></label> {{ currentBeneficiary.name }}
+            </div>
+            <div>
+                <label><strong>Aadhar:</strong></label>
+                {{ currentBeneficiary.aadhar }}
+            </div>
+            <div>
+                <label><strong>Contact:</strong></label>
+                {{ currentTutorial.published ? "Published" : "Pending" }}
+            </div>
+
+            <a class="badge badge-warning" routerLink="/update/{{ currentBeneficiary.id }}">
+                Edit
+            </a>
+            -->
+        </div>
+
+    </div>
+
+    <b *ngIf="status">{{status}}</b>
+</div>

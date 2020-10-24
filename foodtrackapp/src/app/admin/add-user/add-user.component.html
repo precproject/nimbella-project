@@ -1,0 +1,29 @@
+<h1>Add User</h1> <a routerLink="../../">Return to Home</a>
+<div style="width: 400px; margin: auto;">
+    <div class="submit-form">
+        <div *ngIf="!submitted">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" required [(ngModel)]="user.name" name="name" />
+            </div>
+            <div class="form-group">
+                <label for="name">Password</label>
+                <input type="text" class="form-control" id="Password" required [(ngModel)]="user.password"
+                    name="password" />
+            </div>
+            Select Role
+            <select class="form-control" id="role" required [(ngModel)]="user.role" name="role">
+                <option value="admin">Admin</option>
+
+                <option value="store">Store</option>
+            </select>
+
+
+            <button (click)="add()" class="btn btn-success">Add User</button>
+        </div>
+
+        <div *ngIf="status">
+            <h4>{{status}}!</h4>
+        </div>
+    </div>
+</div>

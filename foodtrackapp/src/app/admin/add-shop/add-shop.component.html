@@ -1,0 +1,87 @@
+<h1>Add New Shop</h1> <a routerLink="../../">Return to Home</a>
+<div style="width: 400px; margin: auto;">
+    <div class="submit-form">
+        <div>
+            <div class="form-group">
+                <label for="name">Username</label>
+                <input type="text" class="form-control" id="username" required [(ngModel)]="user.username"
+                    name="username" />
+            </div>
+            <div class="form-group">
+                <label for="name">Password</label>
+                <input type="text" class="form-control" id="password" required [(ngModel)]="user.password"
+                    name="password" />
+                <label for="name">Select Role</label>
+
+                <select class="form-control" id="role" required [(ngModel)]="user.role" name="role">
+                    <option value="store">Store</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="name">Store Name</label>
+                <input type="text" class="form-control" id="name" required [(ngModel)]="store.name" name="name" />
+            </div>
+            <div class="form-group">
+                <label for="name">Store State</label>
+                <select class="form-control" id="state" required [(ngModel)]="store.state" name="state">
+                    <option value="36">Andhra Pradesh</option>
+                    <option value="1">Andaman and Nicobar Islands</option>
+                    <option value="2">Arunachal Pradesh</option>
+                    <option value="3">Assam</option>
+                    <option value="4">Bihar</option>
+                    <option value="5">Chandigarh</option>
+                    <option value="6">Chhattisgarh</option>
+                    <option value="7">Dadar and Nagar Haveli</option>
+                    <option value="8">Daman and Diu</option>
+                    <option value="9">Delhi</option>
+                    <option value="10">Lakshadweep</option>
+                    <option value="11">Puducherry</option>
+                    <option value="12">Goa</option>
+                    <option value="13">Gujarat</option>
+                    <option value="14">Haryana</option>
+                    <option value="15">Himachal Pradesh</option>
+                    <option value="16">Jammu and Kashmir</option>
+                    <option value="17">Jharkhand</option>
+                    <option value="18">Karnataka</option>
+                    <option value="19">Kerala</option>
+                    <option value="20">Madhya Pradesh</option>
+                    <option value="21">Maharashtra</option>
+                    <option value="22">Manipur</option>
+                    <option value="23">Meghalaya</option>
+                    <option value="24">Mizoram</option>
+                    <option value="25">Nagaland</option>
+                    <option value="26">Odisha</option>
+                    <option value="27">Punjab</option>
+                    <option value="28">Rajasthan</option>
+                    <option value="29">Sikkim</option>
+                    <option value="30">Tamil Nadu</option>
+                    <option value="31">Telangana</option>
+                    <option value="32">Tripura</option>
+                    <option value="33">Uttar Pradesh</option>
+                    <option value="34">Uttarakhand</option>
+                    <option value="35">West Bengal</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="name">Store City</label>
+                <input type="text" class="form-control" id="city" required [(ngModel)]="store.city" name="city" />
+            </div>
+
+            <div class="form-group">
+                <label for="name">Store Address </label>
+                <input type="text" class="form-control" id="address" required [(ngModel)]="store.address"
+                    name="address" />
+            </div>
+            <div class="form-group">
+                <label for="name">Store Contact</label>
+                <input type="text" class="form-control" id="contact" required [(ngModel)]="store.contact"
+                    name="contact" />
+            </div>
+            <button (click)="add()" class="btn btn-success">Add Store</button>
+        </div>
+
+        <div *ngIf="status">
+            <h4>{{status}}</h4>
+        </div>
+    </div>
+</div>
