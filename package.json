@@ -1,0 +1,24 @@
+{
+    "name": "nimbella-project",
+    "version": "1.0.0",
+    "description": "Serverless app for nimbella node project",
+    "scripts": {
+        "deploy": "nim project deploy src --env .env --yarn",
+        "ci:deploy": "nim --version && nim auth login $DEPLOYER_LOGIN_TOKEN && npm run deploy"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/precproject/nimbella-project.git"
+    },
+    "keywords": [
+        "developeripl",
+        "hackathon",
+        "social issue"
+    ],
+    "author": "Team Drafters",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/precproject/nimbella-project/issues"
+    },
+    "homepage": "https://github.com/precproject/nimbella-project"
+}
