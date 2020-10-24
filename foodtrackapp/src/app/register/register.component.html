@@ -1,49 +1,51 @@
 <div class="col-md-6 offset-md-3 mt-5 card">
-    <h4 class="card-header">Register</h4>
-    <div class="card-body">
-        <form *ngIf="!isSuccessful" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
-            <div class="form-group">
-                <label for="username">Username</label>
-                <input type="text" class="form-control" name="username" [(ngModel)]="form.username" required
-                    minlength="3" maxlength="20" #username="ngModel" />
-                <div class="alert-danger" *ngIf="f.submitted && username.invalid">
-                    <div *ngIf="username.errors.required">Username is required</div>
-                    <div *ngIf="username.errors.minlength">
-                        Username must be at least 3 characters
-                    </div>
-                    <div *ngIf="username.errors.maxlength">
-                        Username must be at most 20 characters
-                    </div>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" class="form-control" name="password" [(ngModel)]="form.password" required
-                    minlength="6" #password="ngModel" />
-                <div class="alert-danger" *ngIf="f.submitted && password.invalid">
-                    <div *ngIf="password.errors.required">Password is required</div>
-                    <div *ngIf="password.errors.minlength">
-                        Password must be at least 6 characters
+    <div class="card  shadow p-3 mb-5 rounded bg-white">
+        <h4 class="card-header" style="text-align: center">Register</h4>
+        <div class="card-body">
+            <form *ngIf="!isSuccessful" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" class="form-control" name="username" [(ngModel)]="form.username" required
+                        minlength="3" maxlength="20" #username="ngModel" />
+                    <div class="alert-danger" *ngIf="f.submitted && username.invalid">
+                        <div *ngIf="username.errors.required">Username is required</div>
+                        <div *ngIf="username.errors.minlength">
+                            Username must be at least 3 characters
+                        </div>
+                        <div *ngIf="username.errors.maxlength">
+                            Username must be at most 20 characters
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="form-group">
-                Select Role
-                <select class="form-control" name="role" [(ngModel)]="form.role">
-                    <option value="admin">Admin</option>
-                    <option value="store">Store</option>
-                </select>
-                <br>
-                <button class="btn btn-primary btn-block">Sign Up</button>
-            </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" name="password" [(ngModel)]="form.password" required
+                        minlength="6" #password="ngModel" />
+                    <div class="alert-danger" *ngIf="f.submitted && password.invalid">
+                        <div *ngIf="password.errors.required">Password is required</div>
+                        <div *ngIf="password.errors.minlength">
+                            Password must be at least 6 characters
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    Select Role
+                    <select class="form-control" name="role" [(ngModel)]="form.role">
+                        <option value="admin">Admin</option>
+                        <option value="store">Store</option>
+                    </select>
+                    <br>
+                    <button class="btn btn-primary btn-block">Sign Up</button>
+                </div>
 
-            <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
-                Signup failed!<br />{{ errorMessage }}
-            </div>
-        </form>
+                <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
+                    Signup failed!<br />{{ errorMessage }}
+                </div>
+            </form>
 
-        <div class="alert alert-success" *ngIf="isSuccessful">
-            Your registration is successful!
+            <div class="alert alert-success" *ngIf="isSuccessful">
+                Your registration is successful!
+            </div>
         </div>
     </div>
 </div>
