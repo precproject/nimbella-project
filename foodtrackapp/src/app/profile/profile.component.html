@@ -1,45 +1,50 @@
 <div class="container" *ngIf="currentUser; else loggedOut">
+
     <header class="jumbotron">
-        <h3>
+        <h3 style="text-align: center;">
             <strong>{{ currentUser.username }}</strong> Profile
         </h3>
     </header>
-    <p>
-        <strong>Token:</strong>
-        {{ currentUser.accessToken}}
-    </p>
-    <p>
-        <strong>Username:</strong>
-        {{ currentUser.username }}
-    </p>
-    <p>
-        <strong>Role:</strong>
-        {{ currentUser.role }}
-    </p>
-    <p>
-        <strong>User ID:</strong>
-        {{ currentUser.id }}
-    </p>
-    <p>
-        <strong>Registered On:</strong>
-        {{ currentUser.createdAt }}
-    </p>
-    <p *ngIf="store">
-        <strong>Store Name:</strong>
-        {{ store.name }}
-    </p>
-    <p *ngIf="store">
-        <strong>State:</strong>
-        {{ store.state }}
-    </p>
-    <p *ngIf="store">
-        <strong>State:</strong>
-        {{ store.city }}
-    </p>
-    <p *ngIf="store">
-        <strong>Contact:</strong>
-        {{ store.contact }}
-    </p>
+    <div class="card shadow p-3 mb-5 rounded bg-white" style="width: 68rem;">
+        <div class="card-body">
+            <p>
+                <strong>Token:</strong>
+                {{ currentUser.accessToken}}
+            </p>
+            <p>
+                <strong>Username:</strong>
+                {{ currentUser.username }}
+            </p>
+            <p>
+                <strong>Role:</strong>
+                {{ currentUser.role }}
+            </p>
+            <p>
+                <strong>User ID:</strong>
+                {{ currentUser.id }}
+            </p>
+            <p>
+                <strong>Registered On:</strong>
+                {{ currentUser.createdAt }}
+            </p>
+            <p *ngIf="store">
+                <strong>Store Name:</strong>
+                {{ store.name }}
+            </p>
+            <p *ngIf="store">
+                <strong>State:</strong>
+                {{ store.state }}
+            </p>
+            <p *ngIf="store">
+                <strong>State:</strong>
+                {{ store.city }}
+            </p>
+            <p *ngIf="store">
+                <strong>Contact:</strong>
+                {{ store.contact }}
+            </p>
+        </div>
+    </div>
 </div>
 
 <ng-template #loggedOut>
