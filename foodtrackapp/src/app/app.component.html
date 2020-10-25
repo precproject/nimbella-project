@@ -3,16 +3,20 @@
     <a href="/" class="navbar-brand">FoodTracker</a>
     <ul class="navbar-nav mr-auto" routerLinkActive="active">
       <li class="nav-item" *ngIf="showAdminBoard">
-        <a href="/admin" class="nav-link" routerLink="admin">Admin Dashboard</a>
+        <a href="/admin" class="btn btn-primary" style="background: #0ABDF1;margin-left: 5px;" routerLink="admin">Admin
+          Dashboard</a>
       </li>
       <li class="nav-item" *ngIf="showStoreBoard">
-        <a href="/shop" class="nav-link" routerLink="shop">Shop Dashboard</a>
-      </li>
-      <li class="nav-item">
-        <a href="/stats" class="nav-link" routerLink="home">Stats</a>
+        <a href="/shop" class="btn btn-primary" style="background: #0ABDF1;margin-left: 5px;" routerLink="shop">Shop
+          Dashboard</a>
       </li>
       <li class="nav-item" *ngIf="isLoggedIn">
-        <a href="/profile" class="nav-link" routerLink="profile">Profile</a>
+        <a href="/profile" class="btn btn-primary" style="background: #2BD1CE;margin-left: 5px;"
+          routerLink="profile">Profile</a>
+      </li>
+      <li class="nav-item">
+        <a href="/stats" class="btn btn-info" class="nav-link" style="margin-left: 5px;"
+          routerLink="stats">Information</a>
       </li>
       <!--
       <li class="nav-item">
@@ -21,11 +25,11 @@
     </ul>
 
     <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
-      <li class="nav-item">
-        <a href="/register" class="nav-link" routerLink="register">Sign Up</a>
+      <li class="nav-item" style="margin-left:5px">
+        <a href="/register" class="btn btn-primary" style="background: #0ABDF1" routerLink="register">Sign Up</a>
       </li>
-      <li class="nav-item">
-        <a href="/login" class="nav-link" routerLink="login">Login</a>
+      <li class="nav-item" style="margin-left:5px">
+        <a href="/login" class="btn btn-primary" style="background: yellow; color:black" routerLink="login">Login</a>
       </li>
     </ul>
 
@@ -51,7 +55,7 @@
 </div>
 
 <!-- Footer -->
-<footer class="page-footer font-small blue pt-4" style="background-color: #343A40; color:white">
+<footer class="page-footer footer font-small" style="background-color: #343A40; color:white">
 
   <!-- Footer Links -->
   <div class="container-fluid text-center text-md-left">

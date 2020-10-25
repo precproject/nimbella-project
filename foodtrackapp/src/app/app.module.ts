@@ -27,6 +27,7 @@ import { ShopListComponent } from './admin/shop-list/shop-list.component';
 import { ShopSearchComponent } from './admin/shop-search/shop-search.component';
 import { ShopDeleteComponent } from './admin/shop-delete/shop-delete.component';
 import { ShopDistributeComponent } from './admin/shop-distribute/shop-distribute.component';
+import { StatsComponent } from './stats/stats.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { ShopDistributeComponent } from './admin/shop-distribute/shop-distribute
     ShopListComponent,
     ShopSearchComponent,
     ShopDeleteComponent,
-    ShopDistributeComponent
+    ShopDistributeComponent,
+    StatsComponent
   ],
   imports: [
     BrowserModule,

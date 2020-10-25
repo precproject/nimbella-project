@@ -1,7 +1,7 @@
 <h1>Shops</h1> <a routerLink="../../">Return to Home</a>
 <div class="list row">
 
-    <div class="col-md-6">
+    <div class="col-md-12">
         <div class="input-group mb-3">
             <button class="btn btn-outline-secondary" type="button" (click)="getAll()">
                 Get All Shops
@@ -81,7 +81,7 @@
                     <tr *ngFor="let transaction of currentShop.transactions; index as i">
                         <th scope="row">{{ i + 1 }}</th>
                         <td>
-                            {{ transaction.item }}
+                            {{transaction.item}} - {{transaction.id}}
                         </td>
                         <td>{{ transaction.quantity | number }}</td>
                         <td>{{ transaction.date  }}</td>

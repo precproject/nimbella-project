@@ -21,6 +21,7 @@ import { ShopService } from './_services/shop.service';
 import { AddUserComponent } from './admin/add-user/add-user.component';
 import { UpdateUserComponent } from './admin/update-user/update-user.component';
 import { StoreComponent } from './store/store.component';
+import { StatsComponent } from './stats/stats.component';
 
 
 const routes: Routes = [
@@ -29,6 +30,8 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'admin', component: AdminComponent },
+  { path: 'stats', component: StatsComponent },
+
   { path: 'shop', component: StoreComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
 
