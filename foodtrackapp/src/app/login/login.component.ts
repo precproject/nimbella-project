@@ -82,6 +82,6 @@ export class LoginComponent implements OnInit {
   reloadPage() {
     this.status = ""
 
-    //window.location.reload();
+    window.location.reload();
   }
 }
